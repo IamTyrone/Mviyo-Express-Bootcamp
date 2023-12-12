@@ -9,6 +9,11 @@ export default async function UpdateUser(req: any, res: any) {
       error: "You will not update passwords on this endpoint.",
     });
   }
+  if (!req.user.id === id) {
+    res
+      .status(400)
+      .json({ error: "You cannot edit a record which is not your own." });
+  }
   try {
     const user = await prisma.user.update({
       where: { id },
@@ -23,6 +28,6 @@ export default async function UpdateUser(req: any, res: any) {
     res.json(user);
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: err });
+    res.status(500).json({ error: err });
   }
 }
