@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  bootcamp_express_server:
+    build:
+      context: .
+    environment:
+      PORT: 9000
+      DATABASE_URL: file:./dev.db
+    command: "npm run dev"
+    ports:
+      - "9000:9000"
