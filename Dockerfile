@@ -1,4 +1,4 @@
-FROM node:18-slim
+FROM node:18.19-slim
 
 WORKDIR /code
 
@@ -11,7 +11,16 @@ RUN npm install && \
     npm install prisma --save-dev && \
     npx prisma && \
     npm install @prisma/client && \
-    apt-get update -y && apt-get install -y openssl
+    apt-get update -y && apt-get install -y openssl && \
+    npm install ts-node --save-dev && \
+    npm install typescript -g && \
+    npm install typescript --save-dev
+
+RUN npx tsc --init
+
+RUN npm install bcrypt && \
+    npm i --save @types/bcrypt
+
 
 COPY . /code/
 

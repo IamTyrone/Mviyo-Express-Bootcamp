@@ -6,6 +6,9 @@ services:
     environment:
       PORT: 9000
       DATABASE_URL: file:./dev.db
-    command: "npm run dev"
+    command: "./run.sh"
     ports:
       - "9000:9000"
+    volumes:
+      - .:/code
+      - /code/node_modules
