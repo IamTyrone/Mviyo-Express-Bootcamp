@@ -24,7 +24,7 @@ export const options = {
       version: "1.0.0",
     },
   },
-  apis: ["src/users/routes/*.ts"],
+  apis: ["src/users/routes/*.ts", "src/posts/routes/*.ts"],
 };
 
 const openapiSpecification = swaggerJSDoc(options);
