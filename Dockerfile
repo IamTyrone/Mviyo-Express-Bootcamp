@@ -9,6 +9,7 @@ RUN npm install && \
     apt-get update && apt-get upgrade -y && \
     apt-get install -y curl && \
     npm install prisma --save-dev && \
+    npm install prisma -g && \
     npx prisma && \
     npm install @prisma/client && \
     apt-get update -y && apt-get install -y openssl && \
@@ -23,5 +24,7 @@ RUN npm install bcrypt && \
 
 
 COPY . /code/
+
+RUN chmod +x /code/run.sh
 
 EXPOSE 9000
