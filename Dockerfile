@@ -25,7 +25,4 @@ RUN npm install bcrypt && \
 
 COPY . /code/
 
-RUN npx prisma migrate dev --name init
-# ! This command should ideally be run once.
-
 EXPOSE 9000
