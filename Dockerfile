@@ -25,6 +25,8 @@ RUN npm install bcrypt && \
 
 COPY . /code/
 
-RUN chmod +x /code/run.sh
+RUN npx prisma init --datasource-provider sqlite
+
+RUN npx prisma migrate dev --name init 
 
 EXPOSE 9000
